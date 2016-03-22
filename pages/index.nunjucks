@@ -1,0 +1,10 @@
+{% extends "layout.nunjucks" %}
+{% block content %}
+<section class="base">
+
+	<h1>Nunjucks Boilerplate</h1>
+
+</section>
+
+{% include "partials/footer.nunjucks" %}
+{% endblock %}

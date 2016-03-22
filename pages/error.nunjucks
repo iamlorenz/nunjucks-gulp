@@ -1,0 +1,30 @@
+{% extends "layout.nunjucks" %}
+{% block content %}
+<section class="base-container">
+	<script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		$(document).ready(function() {
+			
+			// Add the missing url to the text
+			$("#url").text(window.location.pathname);
+			
+			// Fix the css locations dynamically
+			$("head link").each(function() {
+				for (var i=0; i<window.location.pathname.split(/\//g).length-2; i++)
+					$(this).attr("href", "../" + $(this).attr("href"));
+			});
+			
+		})
+	</script>
+
+	<div style="max-width:800px;padding-top:200px;margin:0 auto;">
+		<p>
+			Sorry the page couldn't be found on this server..
+			<br><br>
+			<a href="javascript:history.back()">&#8592; Go Back</a>
+		</p>
+	</div>
+
+</section>
+{% include "partials/footer.nunjucks" %}
+{% endblock %}
